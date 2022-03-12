@@ -25,7 +25,7 @@ class BlogTests(TestCase):
         self.assertEqual(str(post), post.title)
 
     def test_get_absolute_url(self):
-        self.assertEqual(self.post.get_absolute_url(), '/blog/post/1/')
+        self.assertEqual(self.post.get_absolute_url(), '/post/1/')
 
     def test_post_content(self):
         self.assertEqual(f'{self.post.title}', 'A good title')
@@ -39,8 +39,8 @@ class BlogTests(TestCase):
         self.assertTemplateUsed(response, 'home_blog.html')
 
     def test_post_detail_view(self):
-        response = self.client.get('/blog/post/1/')
-        no_response = self.client.get('/blog/post/10000/')
+        response = self.client.get('/post/1/')
+        no_response = self.client.get('/post/10000/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, 'A good title')
