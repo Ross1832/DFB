@@ -28,10 +28,11 @@ INSTALLED_APPS = [
     # Local
     'news',
     'pages',
+    'articles'
     # 3rd Party
 ]
 
-
+TIME_ZONE = 'America/New_York'
 AUTH_USER_MODEL = 'news.CustomUser'
 
 MIDDLEWARE = [
@@ -123,5 +124,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'komarostyslav@gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
