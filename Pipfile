@@ -5,8 +5,14 @@ name = "pypi"
 
 [packages]
 django-crispy-forms = "==1.9.2"
+whitenoise = "==5.1.0"
+gunicorn = "==19.9.0"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[packages.environs]
+extras = [ "django",]
+version = "==8.0.0"
